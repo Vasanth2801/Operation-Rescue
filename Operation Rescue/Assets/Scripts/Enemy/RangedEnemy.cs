@@ -28,6 +28,7 @@ public class RangedEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timer = fireRate;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        pooler = FindObjectOfType<ObjectPooler>();
     }
 
     private void Update()
@@ -36,7 +37,6 @@ public class RangedEnemy : MonoBehaviour
         {
             RotateTowardsTarget();
         }
-
 
         if (Vector2.Distance(transform.position, target.position) <= distanceToShoot)
         {
@@ -69,7 +69,6 @@ public class RangedEnemy : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
         }
-
     }
 
     void RotateTowardsTarget()
